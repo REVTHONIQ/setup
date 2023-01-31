@@ -87,7 +87,7 @@ _set_bot () {
     echo "
 
     "
-    python3 -m body
+    python3 -m bodython
 }
 
 _set_bot
