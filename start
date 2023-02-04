@@ -87,7 +87,7 @@ _set_bot () {
     echo "
 
     "
-    python3 -m rev
+    python3 -m revthon
 }
 
 _set_bot
