@@ -4,9 +4,9 @@
 _get_ziplink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "bodythoniq" ]]
+    if [[ $UPSTREAM_REPO == "revthoniq" ]]
     then
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2JvZHl0aG9uaXEvYm9keXRob24vYXJjaGl2ZS9IZXJva3Uuemlw" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL3JldnRob25pcS9yZXZ0aG9uL2FyY2hpdmUvSGVyb2t1LnppcA==" | base64 -d
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
@@ -16,7 +16,7 @@ _get_ziplink () {
             echo "${UPSTREAM_REPO}/archive/Heroku.zip"
         fi
     else
-        echo "aHR0cHM6Ly9naXRodWIuY29tL2JvZHl0aG9uaXEvYm9keXRob24vYXJjaGl2ZS9IZXJva3Uuemlw" | base64 -d
+        echo "aHR0cHM6Ly9naXRodWIuY29tL3JldnRob25pcS9yZXZ0aG9uL2FyY2hpdmUvSGVyb2t1LnppcA==" | base64 -d
     fi
 }
 
@@ -24,14 +24,14 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "bodythoniq" ]]
+    if [[ $UPSTREAM_REPO == "revthoniq" ]]
     then
-        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2JvZHl0aG9uaXEvYm9keXRob24uZ2l0" | base64 -d`
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3JldnRob25pcS9yZXZ0aG9uLmdpdA==" | base64 -d`
     elif [[ $UPSTREAM_REPO =~ $regex ]]
     then
         rlink=`echo "${UPSTREAM_REPO}"`
     else
-        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL2JvZHl0aG9uaXEvYm9keXRob24uZ2l0" | base64 -d`
+        rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL3JldnRob25pcS9yZXZ0aG9uLmdpdA==" | base64 -d`
     fi
     echo "$rlink"
 }
@@ -44,7 +44,7 @@ _run_python_code() {
 _run_catpack_git() {
     $(_run_python_code 'from git import Repo
 import sys
-OFFICIAL_UPSTREAM_REPO = "https://github.com/bodythoniq/bodython"
+OFFICIAL_UPSTREAM_REPO = "https://github.com/revthoniq/revthon"
 ACTIVE_BRANCH_NAME = "Heroku"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
@@ -68,7 +68,7 @@ repo.heads[ACTIVE_BRANCH_NAME].checkout(True) ')
 
 _set_bot () {
     local zippath
-    zippath="body.zip"
+    zippath="rev.zip"
     echo "جاري تنزيل اكواد السورس "
     wget -q $(_get_ziplink) -O "$zippath"
     echo " تفريغ البيانات "
@@ -83,11 +83,11 @@ _set_bot () {
     _run_cat_git
     python3 ../setup/updater.py ../requirements.txt requirements.txt
     chmod -R 755 bin
-    echo "    بدء تنزيل بيانات     "
+    echo "    بدء تنزيل بيانات ريف    "
     echo "
 
     "
-    python3 -m body
+    python3 -m rev
 }
 
 _set_bot

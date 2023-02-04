@@ -1,13 +1,13 @@
 {
-  "name": "Source NoBody ",
+  "name": "User BoTs Rev",
   "description": "اللهم صلِ على محمد وآل محمد",
-  "logo": "https://telegra.ph/file/83ee584aef1c4db1d9597.jpg",
+  "logo": "https://telegra.ph/file/bfa2fb6fd0e9551159965.png",
   "keywords": [
     "plugin",
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/bodythoniq/setup/",
+  "repository": "https://github.com/revthoniq/setup/",
   "website": "#TODO",
   "success_url": "#TODO",
   "env": {
